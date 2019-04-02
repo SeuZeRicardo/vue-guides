@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Vue App</title>
+    <script src="https://unpkg.com/vue"></script>
+  </head>
+  <body>
+    <div id="app">
+      <div
+        v-bind:title="randNum"
+        v-if="showN"
+      >
+      Passe o mouse encima do texto para aparecer um numero aleatorio com reatividade do Vue</div>
+      <ol>
+        <li
+          v-for="color in colors"
+          v-if="color.primary"
+        >
+          {{ color.text }}
+        </li>
+      </ol>
+    </div>
+    <script type="text/javascript">
+      var app = new Vue({
+        el: '#app',
+        data: {
+          randNum: Math.floor(Math.random() * 50) + 1,
+          showN: true,
+          colors: [
+            {
+              text: 'Red',
+              primary: true
+            },
+            {
+              text: 'Green',
+              primary: true
+            },
+            {
+              text: 'Yellow',
+              primary: false
+            },
+            {
+              text: 'Blue',
+              primary: true
+            },
+            {
+              text: 'Orange',
+              primary: false
+            },
+          ]
+        }
+      })
+    </script>
+  </body>
+</html>
